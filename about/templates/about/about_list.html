@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_content %}
+
+{% for item in about_list %}
+<div class="container">
+  {% if item.text and item.header is not null %}
+  <div id="column-left" class = "justify">
+      <strong>{{ item.header }}</strong>
+      {{ item.text | safe }}
+  </div>
+  {% elif item.image %}
+  <div id="column-right">
+    <br>
+    <a href="{{item.image.url}}"><img src="{{ item.image.url }}" alt="" class = "img-fluid img-thumbnail"></a>
+  </div>
+  {% endif %}
+</div>
+{% endfor %}
+{% endblock %}

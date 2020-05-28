@@ -1,0 +1,8 @@
+<div class="">
+{% for thought in post_list %}
+  {% if thought.post_type == 'New Thought' %}
+  <hr>
+  <p>{{thought.text | safe }}</p>
+  {% endif %}
+{% endfor %}
+</div>

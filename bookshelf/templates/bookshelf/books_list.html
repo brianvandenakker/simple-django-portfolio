@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_content %}
+
+{% for book in books_list %}
+<div class="container center">
+    <ul class="list-group list-group-flush">
+      <li class = 'list-group-item'>
+        <a href="{{ book.book_link }}" target = "_blank">{{ book.book_title }}</a>
+        <p>{{book.book_author}}</p>
+      </li>
+    </ul>
+</div>
+{% endfor %}
+{% endblock %}

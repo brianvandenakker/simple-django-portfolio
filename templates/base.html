@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- jQuery -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!--Medium Editor from https://github.com/yabwe/medium-editor -->
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+    <!-- Custom CSS-->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>Brian VandenAkker</title>
+    <link rel="icon" href="{% static "images/enso.png" %}">
+  </head>
+
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <div class="container">
+
+        <!-- Links: Left -->
+        <ul class="navbar-nav mr-auto">
+          <li>
+            <a class="navbar-brand" href="{% url 'blog:post_list' %}"><img src="{% static "images/enso.png" %}" alt="" style="width:40px;height:40px;"></a>
+            <a class="navbar-brand" href="{% url 'blog:post_list' %}">Brian VandenAkker</a>
+          </li>
+        </ul>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class = "nav-link" href="{% url 'blog:post_list' %}">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class = "nav-link" href="https://github.com/BriVandenAkker" target = "_blank">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class = "nav-link" href="{% url 'bookshelf:books_list' %}">Bookshelf</a>
+              </li>
+            </ul>
+
+          <!-- Links: Right-->
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="nav-item">
+                <a class = "nav-link" href = "{% url 'about:about_detail' %}">About</a>
+              </li>
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class = "nav-link" href="{% url 'blog:post_new' %}">New Post</a>
+              </li>
+              <li class="nav-item">
+                <a class = "nav-link" href="{% url 'blog:post_new' %}">New Thought</a>
+              </li>
+              <li class="nav-item">
+                <a class = "nav-link" href="{% url 'bookshelf:add_book'%}">Add Book</a>
+              </li>
+              <li class="nav-item">
+                <a class = "nav-link" href="{% url 'blog:post_draft_list' %}"> Post Drafts</a>
+              </li>
+              <li class="nav-item">
+                <a class = "nav-link" href="{% url 'about:update_about' %}"> Update: About</a>
+              </li>
+              <li class="nav-item">
+                <a class = "nav-link" href="{% url 'logout' %}">Log Out</a>
+              </li>
+              <li><a>Welcome: {{user.username}} </a></li>
+              {% else %}
+              <li class="nav-item">
+                <a class = "nav-link" href="{% url 'login' %}">Login</a>
+              </li>
+              {% endif %}
+            </ul>
+
+
+        </div>
+      </nav>
+
+      <div class="container">
+        {% block main_content%}
+        {% endblock %}
+      </div>
+    </body>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</html>
