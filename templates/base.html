@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
     <!-- Custom CSS-->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <title>Brian VandenAkker</title>
+    <title>Site Title</title>
     <link rel="icon" href="{% static "images/enso.png" %}">
   </head>
 
@@ -29,7 +29,7 @@
         <ul class="navbar-nav mr-auto">
           <li>
             <a class="navbar-brand" href="{% url 'blog:post_list' %}"><img src="{% static "images/enso.png" %}" alt="" style="width:40px;height:40px;"></a>
-            <a class="navbar-brand" href="{% url 'blog:post_list' %}">Brian VandenAkker</a>
+            <a class="navbar-brand" href="{% url 'blog:post_list' %}">Site Title</a>
           </li>
         </ul>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +61,7 @@
                 <a class = "nav-link" href="{% url 'blog:post_new' %}">New Post</a>
               </li>
               <li class="nav-item">
-                <a class = "nav-link" href="{% url 'blog:post_new' %}">New Thought</a>
+                <a class = "nav-link" href="{% url 'blog:post_new' %}">New Mini-Post</a>
               </li>
               <li class="nav-item">
                 <a class = "nav-link" href="{% url 'bookshelf:add_book'%}">Add Book</a>
